@@ -1,0 +1,26 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: calc(100% / 4);
+    padding: 25px;
+
+    border: 1px solid #DFE0EB;
+    border-radius: 8px;
+
+    background: #fff;
+    font-weight: 700;
+}
+
+.card__title {
+    font-size: 1.2rem;
+    color: #9FA2B4;
+}
+
+.card__count {
+    font-size: 1.6rem;
+    color: #252733;
+}

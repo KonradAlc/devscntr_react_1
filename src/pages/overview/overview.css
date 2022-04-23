@@ -1,0 +1,46 @@
+.cards {
+    display: flex;
+    gap: 30px;
+
+    margin-top: 20px;
+}
+
+.trend-chart img {
+    width: 100%;
+}
+
+.unresolved-tickets {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    padding-bottom: 10px;
+
+    border: 1px solid #DFE0EB;
+    border-radius: 8px;
+
+    background: #fff;
+}
+
+.unresolved-tickets__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 30px 5px;
+}
+
+.unresolved-tickets__header > h3 {
+    font-size: 1.3rem;
+}
+
+.unresolved-tickets__subheader {
+    padding: 0 30px 20px;
+
+    font-size: .9rem;
+    color: #9FA2B4;
+}
+
+.unresolved-tickets__subheader b {
+    color: #4B506D;
+}

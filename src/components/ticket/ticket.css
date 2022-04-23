@@ -1,0 +1,22 @@
+.ticket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 30px;
+
+    border-bottom: 1px solid #DFE0EB;
+    font-weight: 600;
+}
+
+.ticket:last-child {
+    border-bottom: none;
+}
+
+.ticket__title {
+    color: #252733;
+}
+
+.ticket__count {
+    color: #9FA2B4;
+}

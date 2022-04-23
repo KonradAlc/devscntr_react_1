@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.header__notifications {
+    padding: 5px 25px 5px 0;
+    border-right: 1px solid #DFE0EB;
+}
+
+.header__user__name {
+    padding-left: 20px;
+}
+
+.header__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__user__img {
+    width: 46px;
+    height: 46px;
+
+    padding: 2px;
+
+    border: 1px solid #DFE0EB;
+    border-radius: 50%;
+}

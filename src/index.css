@@ -9,10 +9,12 @@ body {
   --color-accent: #3751FF;
 
   font-family: var(--font-family);
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
+
+input {
+  font-family: var(--font-family);
+}
+
 
 .text--link {
   color: var(--color-accent);

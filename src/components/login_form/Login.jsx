@@ -1,17 +1,10 @@
 import React from 'react';
 import './login.css';
 
-import logo from '../../assets/logo.png';
 
-
-const Login = () => {
+const LoginForm = () => {
   return (
-    <div className="login-box">
-        <img src={logo} alt="Dashboard Kit" />
-        <h3>Dashborad Kit</h3>
-        <h1>Log In to Dashborad Kit</h1>
-        <>Enter your email and password below</>
-
+    <>
         <form className='login-form'>
             <div className="input-box">
                 <label htmlFor="email">EMAIL</label>
@@ -25,9 +18,8 @@ const Login = () => {
             </div>
             <button className='login-form__btn'>Log in</button>
         </form>
-        <>Don't have an account? <span className='text--link'>Sign up</span></>
-    </div>
+    </>
   )
 }
 
-export default Login;
+export default LoginForm;
