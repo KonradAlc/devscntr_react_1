@@ -4,12 +4,11 @@ import './header.css';
 import user_avatar from '../../assets/user_avatar.png';
 import notifications from '../../assets/notifications.png';
 
-const Header = () => {
-    const [page, setPage] = useState("Overview");
+const Header = (props) => {
 
     return (
         <header>
-            <div className="header__title">{page}</div>
+            <div className="header__title">{props.page}</div>
             <div className="header__user">
                 <div className="header__notifications">
                     <img src={notifications} alt="" />

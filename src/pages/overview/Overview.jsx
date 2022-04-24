@@ -1,50 +1,58 @@
 import React, { useState } from 'react';
 import './overview.css';
 
-import { Card, Ticket } from '../../components';
+import { StatsCard, Ticket, Chart } from '../../components';
 import cardsData from "../../cardsData";
 import ticketsData from "../../ticketsData";
-import chart from "../../assets/trend_chart.png";
 
 
 const Overview = () => {
   const cardsElements = cardsData.map(card => {
-    return <Card title={card.title} count={card.count} />
+    return <StatsCard key={card.title} title={card.title} count={card.count} />
   })
 
   const ticketsElements = ticketsData.map(ticket => {
-    return <Ticket title={ticket.title} count={ticket.count} />
+    return <Ticket key={ticket.title} title={ticket.title} count={ticket.count} />
   })
+
+  const chartData1 = [12, 17, 7, 7, 7, 9, 12, 10, 8, 9, 8,10]
+  const chartData2 = [8, 12, 5, 6, 5, 7, 12, 11, 10, 11, 7,10]
 
   return (
     <>
-      <div className="cards">
+
+      <div className="wrapper">
         {cardsElements}
       </div>
 
-      <div className="trend-chart">
-        <img src={chart} />
+      <div className="card">
+        <div className="card__header">
+          <h3>Today's trends</h3>
+        </div>
+        <div className="card__subheader">
+          <span>as of 25 May 2019, 09:41 PM</span>
+        </div>
+        <Chart label1={"Today"} data1={chartData1} label2={"Yesterday"} data2={chartData2} />
       </div>
 
       <div className="wrapper">
-        <div className="unresolved-tickets">
-          <div className="unresolved-tickets__header">
+        <div className="card">
+          <div className="card__header">
             <h3>Unresolved tickets</h3>
             <span className="text--link">View details</span>
           </div>
-          <div className="unresolved-tickets__subheader">
-            Group: <b>Support</b>
+          <div className="card__subheader">
+            <span>Group: <b>Support</b></span>
           </div>
-
           {ticketsElements}
         </div>
 
-        <div className="unresolved-tickets">
-          <div className="unresolved-tickets__header">
+        <div className="card">
+          <div className="card__header">
             <h3>Tasks</h3>
             <span className="text--link">View all</span>
           </div>
-          <div className="unresolved-tickets__subheader">
+          <div className="card__subheader">
             Today
           </div>
 
@@ -52,7 +60,6 @@ const Overview = () => {
         </div>
       </div>
 
-      
     </>
   )
 }

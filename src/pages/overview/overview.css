@@ -1,15 +1,8 @@
-.cards {
-    display: flex;
-    gap: 30px;
-
-    margin-top: 20px;
-}
-
 .trend-chart img {
     width: 100%;
 }
 
-.unresolved-tickets {
+.card {
     display: flex;
     flex-direction: column;
 
@@ -22,7 +15,7 @@
     background: #fff;
 }
 
-.unresolved-tickets__header {
+.card__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,17 +23,21 @@
     padding: 30px 30px 5px;
 }
 
-.unresolved-tickets__header > h3 {
+.card__header > h3 {
     font-size: 1.3rem;
 }
 
-.unresolved-tickets__subheader {
+.card__subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     padding: 0 30px 20px;
 
     font-size: .9rem;
     color: #9FA2B4;
 }
 
-.unresolved-tickets__subheader b {
+.card__subheader b {
     color: #4B506D;
 }

@@ -1,4 +1,4 @@
-.card {
+.stats-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,12 +15,12 @@
     font-weight: 700;
 }
 
-.card__title {
+.stats-card__title {
     font-size: 1.2rem;
     color: #9FA2B4;
 }
 
-.card__count {
+.stats-card__count {
     font-size: 1.6rem;
     color: #252733;
 }
