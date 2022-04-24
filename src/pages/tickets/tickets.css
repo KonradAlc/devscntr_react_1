@@ -1,0 +1,7 @@
+.all-tickets__header {
+    padding: 40px 30px 15px;
+    display: grid;
+    grid-template-columns: 40% 25% 20% 10% 5%;
+
+    border-bottom: 2px solid #DFE0EB;
+}

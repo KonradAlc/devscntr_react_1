@@ -1,0 +1,8 @@
+.ticket {
+    display: grid;
+    grid-template-columns: 40% 25% 20% 10% 5%;
+
+    padding: 20px 30px;
+
+    border-bottom: 2px solid #DFE0EB;
+}
