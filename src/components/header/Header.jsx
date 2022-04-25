@@ -4,11 +4,11 @@ import './header.css';
 import user_avatar from '../../assets/user_avatar.png';
 import notifications from '../../assets/notifications.png';
 
-const Header = (props) => {
+const Header = () => {
 
     return (
         <header>
-            <div className="header__title">{props.page}</div>
+            <div id="header-title" className="header__title">Błąd strony</div>
             <div className="header__user">
                 <div className="header__notifications">
                     <img src={notifications} alt="" />

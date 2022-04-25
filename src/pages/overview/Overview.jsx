@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import './overview.css';
 
 import { StatsCard, WaitingTicket, Chart } from '../../components';
@@ -7,6 +7,10 @@ import ticketsData from "../../ticketsData";
 
 
 const Overview = () => {
+  useEffect(() => {
+    document.getElementById('header-title').textContent = 'Overview'
+  })
+
   const cardsElements = cardsData.map(card => {
     return <StatsCard key={card.title} title={card.title} count={card.count} />
   })

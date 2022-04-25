@@ -34,6 +34,11 @@ nav {
     margin-left: 3px;
 
     cursor: pointer;
+    text-decoration: none;
+}
+
+.nav__links__link > img {
+    opacity: .4;
 }
 
 .nav__links__link > span {
@@ -44,4 +49,8 @@ nav {
     background: #9FA2B415;
     border-left: 3px solid #DDE2FF;
     margin-left: 0;
+}
+
+.nav__links__link.active > img {
+    opacity: 1;
 }

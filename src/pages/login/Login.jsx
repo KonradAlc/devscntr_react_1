@@ -11,13 +11,15 @@ const Login = () => {
 
   let navigate = useNavigate();
   return (
-    <div className="login-box">
-        <img src={logo} alt="Dashboard Kit" />
-        <h3>Dashborad Kit</h3>
-        <h1>Log In to Dashborad Kit</h1>
-        <>Enter your email and password below</>
-          <LoginForm />
-        <>Don't have an account? <span className='text--link' onClick={navigate("/register")}>Sign up</span></>
+    <div className="container">
+      <div className="login-box">
+          <img src={logo} alt="Dashboard Kit" />
+          <h3>Dashborad Kit</h3>
+          <h1>Log In to Dashborad Kit</h1>
+          <>Enter your email and password below</>
+            <LoginForm />
+          <>Don't have an account? <span className='text--link' onClick={navigate("/register")}>Sign up</span></>
+      </div>
     </div>
   )
 }

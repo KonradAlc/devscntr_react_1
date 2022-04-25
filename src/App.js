@@ -13,15 +13,12 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <main>
-          
-          <Header page={page} />
-          
-            <Routes>
-              <Route path="/overview" element={<Overview />} />
-              <Route path="/tickets" element={<Tickets />} />
-              <Route path="*" element={<h1>Nie ma takiej strony</h1>} />
-            </Routes>
-  
+          <Header />
+          <Routes>
+            <Route path="/overview" element={<Overview />} />
+            <Route path="/tickets" element={<Tickets />} />
+            <Route path="*" element={<h1>Nie ma takiej strony</h1>} />
+          </Routes>
         </main>
       </BrowserRouter>
     </div>

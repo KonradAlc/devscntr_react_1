@@ -1,6 +1,6 @@
 import React from 'react';
 
-import OverviewIcon from './assets/nav_overview_active.png';
+import OverviewIcon from './assets/nav_overview.png';
 import TicketsIcon from './assets/nav_tickets.png';
 
 export const NavbarData = [

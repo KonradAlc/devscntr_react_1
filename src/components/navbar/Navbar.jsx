@@ -2,19 +2,19 @@ import React from 'react';
 import './navbar.css';
 import { NavbarData } from '../../navbarData';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 
 
 const Navbar = () => {
+
+
     const navbarLinks = NavbarData.map((data, index) => {
         return (
-            <Link key={index} to={data.path}>
-                <div className="nav__links__link">
-                    <img src={data.icon} />
-                    <span>{data.title}</span>
-                </div>
-            </Link>
+            <NavLink key={index} to={data.path} className="nav__links__link">
+                <img src={data.icon} />
+                <span>{data.title}</span>
+            </NavLink>
         )
     }) 
 

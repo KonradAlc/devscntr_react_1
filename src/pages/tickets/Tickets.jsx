@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import './tickets.css';
 
 import { Ticket } from '../../components';
@@ -6,6 +6,10 @@ import fullTicketsData from "../../fullTicketsData";
 
 
 const Tickets = () => {
+  useEffect(() => {
+    document.getElementById('header-title').textContent = 'Tickets'
+  })
+
   const allTickets = [...fullTicketsData.map(ticket => {
     return <Ticket key={ticket.id} data={ticket} />
   })]
