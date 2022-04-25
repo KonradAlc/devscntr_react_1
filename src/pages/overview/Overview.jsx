@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './overview.css';
 
-import { StatsCard, Ticket, Chart } from '../../components';
+import { StatsCard, WaitingTicket, Chart } from '../../components';
 import cardsData from "../../cardsData";
 import ticketsData from "../../ticketsData";
 
@@ -12,7 +12,7 @@ const Overview = () => {
   })
 
   const ticketsElements = ticketsData.map(ticket => {
-    return <Ticket key={ticket.title} title={ticket.title} count={ticket.count} />
+    return <WaitingTicket key={ticket.title} title={ticket.title} count={ticket.count} />
   })
 
   const chartData1 = [12, 17, 7, 7, 7, 9, 12, 10, 8, 9, 8,10]

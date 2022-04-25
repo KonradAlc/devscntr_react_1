@@ -10,17 +10,20 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
         <Navbar />
         <main>
+          
           <Header page={page} />
-          <BrowserRouter>
+          
             <Routes>
               <Route path="/overview" element={<Overview />} />
               <Route path="/tickets" element={<Tickets />} />
               <Route path="*" element={<h1>Nie ma takiej strony</h1>} />
             </Routes>
-          </BrowserRouter>
+  
         </main>
+      </BrowserRouter>
     </div>
   );
 }

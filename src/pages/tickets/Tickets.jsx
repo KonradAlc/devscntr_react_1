@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './tickets.css';
 
-import { FullTicket } from '../../components';
+import { Ticket } from '../../components';
 import fullTicketsData from "../../fullTicketsData";
 
 
 const Tickets = () => {
   const allTickets = [...fullTicketsData.map(ticket => {
-    return <FullTicket key={ticket.id} data={ticket} />
+    return <Ticket key={ticket.id} data={ticket} />
   })]
 
   return (
