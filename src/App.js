@@ -3,7 +3,7 @@ import './App.css';
 
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { Navbar, Header } from './components';
-import { Overview, Tickets } from './pages';
+import { Overview, Tickets, Login } from './pages';
 
 function App() {
   const [page, setPage] = useState("Overview")
@@ -15,6 +15,7 @@ function App() {
         <main>
           <Header />
           <Routes>
+            <Route path="/login" element={<Login />} />
             <Route path="/overview" element={<Overview />} />
             <Route path="/tickets" element={<Tickets />} />
             <Route path="*" element={<h1>Nie ma takiej strony</h1>} />

@@ -7,9 +7,10 @@ import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  const [login, setLogin] = useState(0);
+  const [login, setLogin] = useState(false);
 
   let navigate = useNavigate();
+
   return (
     <div className="container">
       <div className="login-box">
@@ -18,7 +19,7 @@ const Login = () => {
           <h1>Log In to Dashborad Kit</h1>
           <>Enter your email and password below</>
             <LoginForm />
-          <>Don't have an account? <span className='text--link' onClick={navigate("/register")}>Sign up</span></>
+          <>Don't have an account? <span className='text--link'>Sign up</span></>
       </div>
     </div>
   )
