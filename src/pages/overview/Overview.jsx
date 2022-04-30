@@ -3,24 +3,28 @@ import './overview.css';
 
 import { StatsCard, WaitingTicket, Chart } from '../../components';
 import cardsData from "../../cardsData";
-import ticketsData from "../../ticketsData";
+import waitingTicketsData from "../../waitingTicketsData";
 
 
-const Overview = () => {
+const Overview = ({ page }) => {
+  console.log('render overview');
+
+  // Set page name
   useEffect(() => {
-    document.getElementById('header-title').textContent = 'Overview'
-  })
+    page("Overview")
+  }, [page])
+
 
   const cardsElements = cardsData.map(card => {
     return <StatsCard key={card.title} title={card.title} count={card.count} />
   })
 
-  const ticketsElements = ticketsData.map(ticket => {
+  const ticketsElements = waitingTicketsData.map(ticket => {
     return <WaitingTicket key={ticket.title} title={ticket.title} count={ticket.count} />
   })
 
-  const chartData1 = [12, 17, 7, 7, 7, 9, 12, 10, 8, 9, 8,10]
-  const chartData2 = [8, 12, 5, 6, 5, 7, 12, 11, 10, 11, 7,10]
+  const chartData1 = [12, 17, 7, 7, 7, 9, 12, 10, 8, 9, 8, 10]
+  const chartData2 = [8, 12, 5, 6, 5, 7, 12, 11, 10, 11, 7, 10]
 
   return (
     <>

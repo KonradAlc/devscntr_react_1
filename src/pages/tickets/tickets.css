@@ -1,7 +1,95 @@
 .all-tickets__header {
     padding: 40px 30px 15px;
     display: grid;
-    grid-template-columns: 40% 25% 20% 10% 5%;
+    grid-template-columns: 45% 25% 17% calc(13% - 30px) 30px;
 
     border-bottom: 2px solid #DFE0EB;
+    color: #9FA2B4;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.card__header_buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card__sort-btn,
+.card__filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 5px 10px;
+    border-radius: 20px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4B506D;
+    transition: background .1s ease-in-out;
+    cursor: pointer;
+}
+
+.card__sort-btn:hover,
+.card__filter-btn:hover {
+    background: #eef2ff;
+}
+
+.all-tickets__footer {
+    display: flex;
+    justify-content: end;
+    gap: 50px;
+
+    padding: 30px 30px 20px;
+}
+
+.all-tickets__rows-per-page {
+    display: flex;
+    align-items: center;
+
+    color: #9FA2B4;
+}
+
+.all-tickets__rows-per-page select {
+    appearance: none;
+    background: url(../../assets/dropdown.png) no-repeat right;
+    border: none;
+    padding: 5px 10px;
+    color: #4B506D;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.all-tickets__rows-per-page select:focus {
+    outline: none;
+}
+
+.all-tickets__page {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.all-tickets__page-num {
+    color: #9FA2B4;
+}
+
+.all-tickets__prev-page,
+.all-tickets__next-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+    transition: background .1s ease-in-out;
+    cursor: pointer;
+}
+
+.all-tickets__prev-page:hover,
+.all-tickets__next-page:hover {
+    background: #eef2ff;
 }

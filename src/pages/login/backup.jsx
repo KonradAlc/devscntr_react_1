@@ -1,10 +1,11 @@
 import React from 'react';
-import './loginForm.css';
+import './login.css';
 
 import { useRef, useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
-const LoginForm = () => {
+
+const Login = () => {
   
   const userRef = useRef()
   const errRef = useRef()
@@ -31,8 +32,14 @@ const LoginForm = () => {
   }
 
   return (
-    <>
-        <form className='login-form' onSubmit={ handleSubmit }>
+    <div className="container">
+      <div className="login-box">
+          <img src={logo} alt="Dashboard Kit" />
+          <h3>Dashborad Kit</h3>
+          <h1>Log In to Dashborad Kit</h1>
+          <>Enter your email and password below</>
+
+          <form className='login-form' onSubmit={ handleSubmit }>
             <div className="input-box">
                 <label htmlFor="email">EMAIL</label>
                 <input 
@@ -47,6 +54,7 @@ const LoginForm = () => {
                 />
                 <div className="error"></div>
             </div>
+
             <div className="input-box">
                 <label htmlFor="email">PASSWORD</label>
                 <input 
@@ -59,10 +67,14 @@ const LoginForm = () => {
                 />
                 <div className="error"></div>
             </div>
+
             <button className='login-form__btn'>Log in</button>
-        </form>
-    </>
+          </form>
+          
+          <>Don't have an account? <span className='text--link'>Sign up</span></>
+      </div>
+    </div>
   )
 }
 
-export default LoginForm;
+export default Login;

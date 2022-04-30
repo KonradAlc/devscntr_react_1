@@ -2,15 +2,23 @@ import React, { useEffect } from 'react';
 import './tickets.css';
 
 import { Ticket } from '../../components';
-import fullTicketsData from "../../fullTicketsData";
+import ticketsData from "../../ticketsData";
+import SortIcon from "../../assets/sort.png";
+import FilterIcon from "../../assets/filter.png";
+import LeftIcon from "../../assets/left.png";
+import RightIcon from "../../assets/right.png";
 
 
-const Tickets = () => {
+const Tickets = ({ page }) => {
+  console.log('render tickets');
+
+  // Set page name
   useEffect(() => {
-    document.getElementById('header-title').textContent = 'Tickets'
-  })
+    page("Tickets")
+  }, [page])
 
-  const allTickets = [...fullTicketsData.map(ticket => {
+
+  const allTickets = [...ticketsData.map(ticket => {
     return <Ticket key={ticket.id} data={ticket} />
   })]
 
@@ -20,7 +28,16 @@ const Tickets = () => {
       <div className="card">
         <div className="card__header">
           <h3>All tickets</h3>
-          <span>buttons</span>
+          <div className="card__header_buttons">
+            <div className="card__sort-btn">
+              <img src={SortIcon} />
+              <span>Sort</span>
+            </div>
+            <div className="card__filter-btn">
+              <img src={FilterIcon} />
+              <span>Filter</span>
+            </div>
+          </div>
         </div>
         <div className="all-tickets">
 
@@ -40,7 +57,28 @@ const Tickets = () => {
           </div>
 
           {allTickets}
-          
+
+          <div className="all-tickets__footer">
+            <div className="all-tickets__rows-per-page">
+              Rows per page:
+              <select name="rows-per-page" id="rows-per-page">
+                <option value="8">8</option>
+                <option value="16">16</option>
+                <option value="24">24</option>
+              </select>
+            </div>
+            <div className="all-tickets__page">
+              <div className="all-tickets__page-num">
+                1-8 of 1240
+              </div>
+              <div className="all-tickets__prev-page">
+                <img src={LeftIcon} alt="<" />
+              </div>
+              <div className="all-tickets__next-page">
+                <img src={RightIcon} alt=">" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

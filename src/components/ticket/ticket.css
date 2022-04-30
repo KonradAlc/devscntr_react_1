@@ -1,12 +1,103 @@
 .ticket {
     display: grid;
-    grid-template-columns: 40% 25% 20% 10% 5%;
+    grid-template-columns: 45% 25% 17% calc(13% - 30px) 30px;
 
     padding: 20px 30px;
 
-    border-bottom: 2px solid #DFE0EB;
+    border-bottom: 1px solid #DFE0EB;
+    transition: background .1s ease-in-out;
+}
+
+.ticket:hover {
+    background: #f8f9ff;
 }
 
 .ticket:last-child {
     border-bottom: none;
+}
+
+.ticket__options {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    cursor: pointer;
+}
+
+.ticket__options__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+    transition: background .1s ease-in-out;
+}
+
+.ticket__options__btn:hover {
+    background: #eef2ff;
+}
+
+.ticket__details {
+    display: flex;
+}
+
+.ticket__user-avatar {
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+}
+
+/* COLUMNS */
+.ticket__details__text,
+.ticket__customer-name,
+.ticket__date,
+.ticket__priority {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.ticket__title,
+.ticket__customer-name__name,
+.ticket__date__full-date {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #252733;
+}
+
+.ticket__last-update,
+.ticket__customer-name__date,
+.ticket__date__hour {
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: #C5C7CD;
+}
+
+.ticket__priority {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.ticket__priority__tag {
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 20px;
+    background: red;
+    color: #fff;
+}
+
+.ticket__priority__tag--high {
+    background: #F12B2C;
+}
+
+.ticket__priority__tag--normal {
+    background: #29CC97;
+}
+
+.ticket__priority__tag--low {
+    background: #FEC400;
 }
