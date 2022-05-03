@@ -6,12 +6,12 @@ import TicketsIcon from './assets/nav_tickets.png';
 export const NavbarData = [
     {
         title: 'Overview',
-        path: '/overview',
+        path: '/app/overview',
         icon: OverviewIcon
     },
     {
         title: 'Tickets',
-        path: '/tickets',
+        path: '/app/tickets',
         icon: TicketsIcon
     },
 ]

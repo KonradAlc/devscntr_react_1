@@ -55,8 +55,11 @@ html {
 .input-box {
     display: flex;
     flex-direction: column;
-    text-align: left;
     gap: .5rem;
+    
+    width: 100%;
+    
+    text-align: left;
 }
 
 .input-box > label {

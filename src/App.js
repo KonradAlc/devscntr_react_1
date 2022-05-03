@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Navigate, useNavigate } from 'react-router-dom';
 import { Navbar, Header } from './components';
-import { Overview, Tickets, Login } from './pages';
+import { Overview, Tickets, Login, Register } from './pages';
 
 function App() {
   // Page name
-  const [page, setPage] = useState("")
+  const [page, setPage] = useState("Login")
 
   // User
   const [user, setUser] = useState({
-    email: "test@gmail.com"
+    email: ""
   })
- 
+  
   const loginData = data => {
     console.log('login')
     if (data.email != "") {
@@ -23,8 +23,8 @@ function App() {
     }
   }
 
+
   const logout = () => {
-    console.log('logout')
     setUser({
       email: ""
     })
@@ -37,7 +37,12 @@ function App() {
 
       {(user.email === "") ? (
         <>
-          <Login loginData={loginData} />
+          <Routes>
+            <Route path="/login" element={<Login loginData={loginData} />} />
+            <Route path="/register" element={<Register />} />
+
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
         </>
       ) : (
         <>
@@ -45,9 +50,12 @@ function App() {
           <main>
             <Header logout={logout} page={page} />
             <Routes>
-              <Route path="/overview" element={<Overview page={setPage} />} />
-              <Route path="/tickets" element={<Tickets page={setPage} />} />
-              <Route path="*" element={<h1>Nie ma takiej strony</h1>} />
+              <Route path="/app">
+                <Route path="overview" element={<Overview page={setPage} />} />
+                <Route path="tickets" element={<Tickets page={setPage} />} />
+              </Route>
+              
+              <Route path="*" element={<Navigate to="/app/overview" />} />
             </Routes>
           </main>
         </>

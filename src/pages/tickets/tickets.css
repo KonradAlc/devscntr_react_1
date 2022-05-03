@@ -39,7 +39,7 @@
 .all-tickets__footer {
     display: flex;
     justify-content: end;
-    gap: 50px;
+    gap: 40px;
 
     padding: 30px 30px 20px;
 }
@@ -52,10 +52,8 @@
 }
 
 .all-tickets__rows-per-page select {
-    appearance: none;
-    background: url(../../assets/dropdown.png) no-repeat right;
     border: none;
-    padding: 5px 10px;
+    padding-left: 10px;
     color: #4B506D;
     font-weight: 600;
     cursor: pointer;

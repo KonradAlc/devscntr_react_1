@@ -34,4 +34,10 @@ header {
 
     border: 1px solid #DFE0EB;
     border-radius: 50%;
+    cursor: pointer;
+    transition: border-color .1s ease-in-out;
+}
+
+.header__user__img:hover {
+    border-color: #c1c5e9;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './tickets.css';
 
 import { Ticket } from '../../components';
@@ -10,7 +10,6 @@ import RightIcon from "../../assets/right.png";
 
 
 const Tickets = ({ page }) => {
-  console.log('render tickets');
 
   // Set page name
   useEffect(() => {
@@ -18,9 +17,60 @@ const Tickets = ({ page }) => {
   }, [page])
 
 
-  const allTickets = [...ticketsData.map(ticket => {
-    return <Ticket key={ticket.id} data={ticket} />
-  })]
+  const countTickets = ticketsData.length   // Number of all tickets
+
+  // States
+  const [currentIndex, setCurrentIndex] = useState(0)   // Current start index to show from data array
+  const [rowsPerPage, setRowsPerPage] = useState(8)    // Number of showed <Ticket /> components
+  const [showTickets, setShowTickets] = useState()    // Store current show <Ticket /> components
+  // Used to show current range of showed tickets
+  const [pageRange, setPageRange] = useState(
+    [currentIndex+1, rowsPerPage+currentIndex < countTickets ? currentIndex+rowsPerPage : countTickets]
+  )
+
+  // Load ticket when index or rows-per-page changes
+  useEffect(() => {
+    // Get new tickets
+    setShowTickets(
+      [
+        [...ticketsData.slice(currentIndex, currentIndex + rowsPerPage)].map(ticket => {
+          return <Ticket key={ticket.id} data={ticket} />
+        })
+      ]
+    )
+    // Set new range of showed tickets
+    setPageRange([currentIndex+1, rowsPerPage+currentIndex < countTickets ? currentIndex+rowsPerPage : countTickets])
+  }, [currentIndex, rowsPerPage])
+
+  const handleChange = e => {
+    setRowsPerPage(parseInt(e.target.value))
+  }
+
+  // previous page button action
+  const prevPage = () => {
+    if (currentIndex - rowsPerPage + 1 >= 1) {
+      setCurrentIndex(prevCurrentIndex => {
+        const newIndex = prevCurrentIndex - rowsPerPage
+        return newIndex
+      })
+    }
+    else if (currentIndex - 8 + 1 >= 1) {
+      setCurrentIndex(prevCurrentIndex => {
+        const newIndex = prevCurrentIndex - 8
+        return newIndex
+      })
+    }
+  }
+  
+  // next page button action
+  const nextPage = () => {
+    if (currentIndex + rowsPerPage < countTickets) {
+      setCurrentIndex(prevCurrentIndex => {
+        const newIndex = prevCurrentIndex + rowsPerPage
+        return newIndex
+      })
+    }
+  }
 
   return (
     <>
@@ -56,12 +106,12 @@ const Tickets = ({ page }) => {
             </div>
           </div>
 
-          {allTickets}
+          {showTickets}
 
           <div className="all-tickets__footer">
             <div className="all-tickets__rows-per-page">
               Rows per page:
-              <select name="rows-per-page" id="rows-per-page">
+              <select name="rows-per-page" id="rows-per-page" onChange={handleChange} defaultValue={rowsPerPage}>
                 <option value="8">8</option>
                 <option value="16">16</option>
                 <option value="24">24</option>
@@ -69,12 +119,12 @@ const Tickets = ({ page }) => {
             </div>
             <div className="all-tickets__page">
               <div className="all-tickets__page-num">
-                1-8 of 1240
+                {pageRange[0]}-{pageRange[1]} of {countTickets}
               </div>
-              <div className="all-tickets__prev-page">
+              <div className="all-tickets__prev-page" onClick={prevPage}>
                 <img src={LeftIcon} alt="<" />
               </div>
-              <div className="all-tickets__next-page">
+              <div className="all-tickets__next-page" onClick={nextPage}>
                 <img src={RightIcon} alt=">" />
               </div>
             </div>

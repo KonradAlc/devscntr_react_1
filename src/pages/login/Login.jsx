@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './login.css';
 
-import { Navigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 
 const Login = ({ loginData, error}) => {
@@ -10,8 +10,7 @@ const Login = ({ loginData, error}) => {
     {
       email: "",
       password: "",
-      errMsg: "",
-      success: false
+      errMsg: ""
     }
   )
 
@@ -27,9 +26,15 @@ const Login = ({ loginData, error}) => {
     })
   }
 
+  // Form validation
+  const checkForm = () => {
+    let success = true
+    return success
+  }
+
   const handleSubmit = e => {
-    e.preventDefault()
-    loginData(formData)
+    e.preventDefault();
+    checkForm() && loginData(formData)
     console.log(formData)
   }
   
@@ -40,7 +45,7 @@ const Login = ({ loginData, error}) => {
           <img src={logo} alt="Dashboard Kit" />
           <h3>Dashborad Kit</h3>
           <h1>Log In to Dashborad Kit</h1>
-          <>Enter your email and password below</>
+          <span>Enter your email and password below</span>
 
           <form className='login-form' onSubmit={ handleSubmit }>
             <div className="input-box">
@@ -66,7 +71,7 @@ const Login = ({ loginData, error}) => {
                   name="password"
                   placeholder="Password" 
                   onChange={ handleChange }
-                  value={ formData.passwd }
+                  value={ formData.password }
                   required
                 />
                 <div className="error"></div>
@@ -75,7 +80,7 @@ const Login = ({ loginData, error}) => {
             <button className='login-form__btn'>Log in</button>
           </form>
           
-          <>Don't have an account? <span className='text--link'>Sign up</span></>
+          <>Don't have an account? <Link to="/register" className='text--link'>Sign up</Link></>
       </div>
     </div>
   )
